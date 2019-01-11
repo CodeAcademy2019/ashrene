@@ -1,5 +1,5 @@
 var pizza = {
-    toppings: ['cheese','sauce','pepperoni'],
+    toppings: ['cheese','sauce','pepperoni'], //array not list
     crust: 'deep dish',
     serves: 2
 };
