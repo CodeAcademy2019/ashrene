@@ -11,3 +11,6 @@ test("Append ! when only string is given",() => {
 test("Append ! when length is undefined",() => {
     expect(important("Hi",undefined)).toEqual("Hi!!");
 })
+test("Append ! when length is null",() => {
+    expect(important("Hi",{})).toEqual("Hi");
+})

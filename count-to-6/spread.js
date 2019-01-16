@@ -1,6 +1,7 @@
 var inputs = process.argv.slice(2);
 var findMin = (inputs) => {
     //if(inputs){
+        console.log(...inputs);
         var result = Math.min(...inputs);
         //console.log(`The minimum of [${arr}] is ${result}`)
         return `The minimum of [${inputs}] is ${result}`

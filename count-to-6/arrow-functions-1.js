@@ -4,7 +4,7 @@ var arrow =(inputs) => {
     //if(inputs){
         var result = inputs.map(x=>x[0])
         //.concat(result).join('')
-        //.reduce((acc,currV)=>acc.concat(currV)); - test not working showing TypeError: Reduce of empty array with no initial value
+        //.reduce((acc,currV)=>acc.concat(currV)); - test not working showing TypeError: Reduce of empty array with no initial value, therefore pass initial value ''
         //soln - pass an initial value for reduce - 2nd argument
         .reduce((acc,currV)=>acc.concat(currV),''); 
         //console.log(`[${inputs}] becomes "${result}"`);  
@@ -14,5 +14,5 @@ var arrow =(inputs) => {
         
 
 
-console.log(arrow(inputs))
+//console.log(arrow(inputs))
 module.exports = arrow

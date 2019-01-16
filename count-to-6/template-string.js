@@ -1,6 +1,6 @@
 var s = process.argv[2];
 
-var templateString = (str) =>{
+var templateString = (str) => {
 
     if(str){
         var lc = str.toLowerCase();

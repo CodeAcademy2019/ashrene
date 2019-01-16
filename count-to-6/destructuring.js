@@ -1,7 +1,7 @@
 
     let userArray = process.argv.slice(2);
     // what goes here?
-    var destructuring = (arr) =>{
+    var destructuring = (arr) => {
         let obj = {};
         [,obj.username,obj.email] = arr;
         return obj

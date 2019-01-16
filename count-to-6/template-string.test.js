@@ -1,12 +1,12 @@
 
 const templateString = require('./template-string')
 
-test('Return lowercase',() => {
+test('templateString - Return lowercase',() => {
     expect(templateString(`NAME`)).toEqual(`Hello, NAME!
     Your name lowercased is "name".`);
 });
 
-test('When null input',() => {
-    expect(templateString(``)).toEqual(undefined);
+test('templateString - When null input is given',() => {
+    expect(templateString('')).toEqual(undefined);
 });
 

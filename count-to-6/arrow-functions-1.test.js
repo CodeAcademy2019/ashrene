@@ -5,5 +5,5 @@ test('Test arrow function on array containing strings',() => {
 });
 
 test('Test arrow function on array containing one empty string',() => {
-    expect(arrow(['Hi',''])).not.toEqual(`[Hi,Everyone] becomes \"H\"`); //Hundefined
+    expect(arrow(['Hi',''])).toEqual(`[Hi,] becomes \"Hundefined\"`); 
 });
