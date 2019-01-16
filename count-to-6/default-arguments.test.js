@@ -1,17 +1,37 @@
 const midpoint = require("./default-arguments")
+const lower = 0,upper = 1;
+let testInputs = [
+    {
+        testDescription: 'midpoint Should return average for 2 numbers',
+        functionInputs: [1,3],
+        expectedOutputs: 2
+    },
+    {
+        testDescription: 'midpoint Should return average for undefined and a number',
+        functionInputs: [undefined,4],
+        expectedOutputs: 2
+    },
+    {
+        testDescription: 'midpoint Should return average for number and undefined',
+        functionInputs: [3,undefined],
+        expectedOutputs: 2
+    },
+    {
+        testDescription: 'midpoint Should return average for undefined inputs',
+        functionInputs: [undefined,undefined],
+        expectedOutputs: 0.5
+    },
+    {
+        testDescription: 'midpoint should give Average for very large numbers',
+        functionInputs: [123456789656,76786876987],
+        expectedOutputs: 123456789656+(76786876987-123456789656)/2
+    }
 
-test("Should return average for 2 numbers",() => {
-    expect(midpoint(1,3)).toEqual(2);
+]
+
+testInputs.forEach((inputs) => {
+    test(inputs.testDescription,() => {
+        expect(midpoint(...inputs.functionInputs)).toEqual(inputs.expectedOutputs);
+    })
 })
 
-test("Should return average for undefined and a number",() => {
-    expect(midpoint(undefined,100)).toEqual(50);
-})
-
-test("Should return average for number and undefined",() => {
-    expect(midpoint(-1,undefined)).toEqual(0);
-})
-
-test("Should return average for undefined inputs",() => {
-    expect(midpoint(undefined,undefined)).toEqual(0.5);
-})
