@@ -1,9 +1,34 @@
 const average = require("./rest")
+let testInputs = [
+    {
+        testDescription: 'average Should give average of numbers',
+        functionInputs: [1,2,3],
+        expectedOutputs: 2
+    },
+    {
+        testDescription: 'average Should give average of negative and positive numbers',
+        functionInputs: [-1,1,-1,1],
+        expectedOutputs: 0
+    },
+    {
+        testDescription: 'average when empty string is passed',
+        functionInputs: [''],
+        expectedOutputs: 0
+    },
+    {
+        testDescription: 'average when null is passed',
+        functionInputs: [null],
+        expectedOutputs: 0
+    },
+    {
+        testDescription: 'average when [] is passed',
+        functionInputs: [],
+        expectedOutputs: 0
+    }
 
-test("Should give average of numbers",() => {
-    expect(average(1,2,3)).toEqual(2);
+]
+testInputs.forEach( (inputs) => {
+    test(inputs.testDescription,() => {
+        expect(average(...inputs.functionInputs)).toEqual(inputs.expectedOutputs);
 })
-
-test("Should give average of numbers",() => {
-    expect(average(-1,1,-1,1)).toEqual(0);
 })
