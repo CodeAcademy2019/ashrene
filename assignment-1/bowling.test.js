@@ -7,6 +7,9 @@ describe('pins', () => {
     it('should give the score of the game - all open', () => {
         expect(bowling.pins([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toEqual(90);
     });
+    it('should give the score of the game - all open -all zero', () => {
+        expect(bowling.pins([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])).toEqual(0);
+    });
     it('should give the score of the game - spare case', () => {
         expect(bowling.pins([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])).toEqual(16);
     });
