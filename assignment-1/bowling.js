@@ -1,28 +1,33 @@
 // const roll = (pins) => {
 //     return pins;
 // }
+const score = (scoreArray) => {
+    return scoreArray.reduce((acc,currV) => (
+        acc += currV
+    ),0);
+}
 
-const bowling = (input) => {
+const pins = (input) => {
     const length = input.length;
-    let score = [];
+    let scoreArray = [];
     for(let i = 0; i< length; i++){
 
         if(input[i]<10){ //open
-            score[i] = input[i];
-            console.log(i + ' ' + score[i] + ' open input ' + input[i] );
+            scoreArray[i] = input[i];
+            console.log(i + ' ' + scoreArray[i] + ' open input ' + input[i] );
         }
 
         if((input[i] < 10)&&(input[i]+input[i-1] == 10)&&(i-1>=0)&&(i<18)){ //spare
-            score[i] = 10 + input[i+1];
-            score[i-1] = 0;
-            console.log(i + ' ' + score[i] + ' spare input ' + input[i] );
+            scoreArray[i] = 10 + input[i+1];
+            scoreArray[i-1] = 0;
+            console.log(i + ' ' + scoreArray[i] + ' spare input ' + input[i] );
         }
         
         if(input[i] == 10){ //strike
             if(i<18){
                 if(input[i+1] == 10){
-                    score[i] = 10 + input[i+1] + input[i+2];
-                    console.log(i + ' ' + score[i] + ' strike input ' + input[i] );
+                    scoreArray[i] = 10 + input[i+1] + input[i+2];
+                    console.log(i + ' ' + scoreArray[i] + ' strike input ' + input[i] );
                 }
                 // else{
                 //     score[i] = 10 + input[i+1] + input[i+2]
@@ -31,26 +36,22 @@ const bowling = (input) => {
             }
             if(i==18){
                 if((input[i] == 10)&&(input[i+1]<10)){
-                    score[i] = 10;
-                    score[i+1] = 10;
-                    console.log(i + ' ' + score[i] + ' strike input ' + input[i] );
+                    scoreArray[i] = 10;
+                    scoreArray[i+1] = 10;
+                    console.log(i + ' ' + scoreArray[i] + ' strike input ' + input[i] );
 
                 }
                 if((input[i] == 10)&&(input[i+1]==10)){
-                    score[i] = 10;
-                    score[i+1] = 10;
-                    score[i+2] = 10;
-                    console.log(i + ' ' + score[i] + ' strike input ' + input[i] );
+                    scoreArray[i] = 10;
+                    scoreArray[i+1] = 10;
+                    scoreArray[i+2] = 10;
+                    console.log(i + ' ' + scoreArray[i] + ' strike input ' + input[i] );
                 }
             }
 
         }
     }
-    let finalscore = score.reduce((acc,currV) => (
-        acc += currV
-    ),0)
-    console.log(finalscore);
-    return finalscore;
+    return score(scoreArray);
 }
 
-module.exports = bowling;
+module.exports = { pins, score };
