@@ -24,7 +24,26 @@ const bowling = (input) => {
                     score[i] = 10 + input[i+1] + input[i+2];
                     console.log(i + ' ' + score[i] + ' strike input ' + input[i] );
                 }
+                // else{
+                //     score[i] = 10 + input[i+1] + input[i+2]
+                //     console.log(i + ' ' + score[i] + ' strike input ' + input[i] );
+                // }
             }
+            if(i==18){
+                if((input[i] == 10)&&(input[i+1]<10)){
+                    score[i] = 10;
+                    score[i+1] = 10;
+                    console.log(i + ' ' + score[i] + ' strike input ' + input[i] );
+
+                }
+                if((input[i] == 10)&&(input[i+1]==10)){
+                    score[i] = 10;
+                    score[i+1] = 10;
+                    score[i+2] = 10;
+                    console.log(i + ' ' + score[i] + ' strike input ' + input[i] );
+                }
+            }
+
         }
     }
     let finalscore = score.reduce((acc,currV) => (
