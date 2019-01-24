@@ -16,15 +16,12 @@ const map = require('through2-map');
 //     else{
 //         response.write('NOT POST');
 //     }
-    
+
 // });
 
 
 const httpServer = http.createServer((request, response) => {
-    request.pipe(map((chunk) => {
-        return chunk.toString().toUpperCase();
-    })).pipe(response);
-
+    request.pipe(map(chunk => chunk.toString().toUpperCase())).pipe(response);
 });
 
 httpServer.listen(process.argv[2]);
