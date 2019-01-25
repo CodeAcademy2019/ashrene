@@ -1,16 +1,20 @@
 const http = require('http');
 
-const url = process.argv[2];
+// const url = process.argv[2];
+// const callbackF = (data) => {
+//   console.log(data);
+// };
 
-const httpget = (url) => {
-    http.get(url, (response) => {
-        response.setEncoding('utf8').on('data', (data) => {
-            console.log(data);
-            // return data;
-        });
-    });
+const httpget = (callback) => {
+  http.get(process.argv[2], (response) => {
+    response.setEncoding('utf8');
+    response.on('data', callback);
+    response.on('error', console.log);
+    // return data;
+  });
 };
 
-httpget(url);
+
+// httpget(callbackF);
 
 module.exports = httpget;

@@ -1,20 +1,26 @@
 const http = require('http');
-const bl = require('bl');
+// const bl = require('bl');
 
-const url = process.argv[2];
+// const url = process.argv[2];
+
+// const callback = (data) => {
+//   const stringLength = data.length;
+//   console.log(stringLength);
+//   console.log(data);
+// };
 
 let data = '';
-
-http.get(url, (response) => {
+const httpget = (callback) => {
+  http.get(process.argv[2], (response) => {
+    response.setEncoding('utf8');
     response.on('data', (chunk) => {
-        data += chunk;
-        return data;
-    }).on('end', () => {
-        const stringLength = data.length;
-        console.log(stringLength);
-        console.log(data);
-    });
-});
+      // console.log(url);
+      data += chunk;
+      return data;
+    }).on('end', () => callback(data));
+  });
+};
+
 
 // http.get(url, (response) => {
 //     response.pipe(bl((err, data) => {
@@ -23,3 +29,5 @@ http.get(url, (response) => {
 //         console.log(result);
 //     }));
 // });
+
+module.exports = httpget;
